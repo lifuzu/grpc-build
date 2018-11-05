@@ -9,7 +9,7 @@ from .helloworld_grpc import GreeterStub
 
 async def main():
     loop = asyncio.get_event_loop()
-    channel = Channel('127.0.0.1', 50051, loop=loop)
+    channel = Channel('docker.for.mac.host.internal', 50051, loop=loop)
     stub = GreeterStub(channel)
 
     response = await stub.SayHello(HelloRequest(name='World'))

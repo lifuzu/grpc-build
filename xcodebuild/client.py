@@ -9,7 +9,7 @@ from .xcodebuild_grpc import XcodeStub
 
 async def main() -> int:
     loop = asyncio.get_event_loop()
-    channel = Channel('127.0.0.1', 50051, loop=loop)
+    channel = Channel('docker.for.mac.host.internal', 50051, loop=loop)
     stub = XcodeStub(channel)
 
     response = await stub.Build(Argument(args=['-help']))
