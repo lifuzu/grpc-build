@@ -14,8 +14,22 @@ tox = "*"
 
 [scripts]
 hello = "echo hello"
-helloworld_protoc = "python -m grpc_tools.protoc -I. --python_out=. --python_grpc_out=. helloworld/helloworld.proto"
-xcodebuild_protoc = "python -m grpc_tools.protoc -I. --python_out=. --python_grpc_out=. xcodebuild/xcodebuild.proto"
+message_protoc = "
+    python -m grpc_tools.protoc -I. --python_out=. --python_grpc_out=.
+    proto/messages/argument.proto
+    proto/messages/output.proto
+    "
+helloworld_protoc = "
+    python -m grpc_tools.protoc -I. --python_out=. --python_grpc_out=.
+    helloworld/helloworld.proto
+    "
+xcodebuild_protoc = "
+    python -m grpc_tools.protoc -I. --python_out=. --python_grpc_out=.
+    xcodebuild/xcodebuild.proto"
+shell_protoc = "
+    python -m grpc_tools.protoc -I. --python_out=. --python_grpc_out=.
+    shell/shell.proto
+    "
 test = "pytest"
 rmdist = "rm -fr dist"
 compile = "python setup.py sdist bdist_wheel"

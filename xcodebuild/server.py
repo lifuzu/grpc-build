@@ -1,9 +1,7 @@
 
-import io
-import sys
 import subprocess
 
-from .xcodebuild_pb2 import Output
+from proto.messages.output_pb2 import Output
 from .xcodebuild_grpc import XcodeBase
 
 

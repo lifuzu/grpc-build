@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message Argument {
+  repeated string args = 1;
+}

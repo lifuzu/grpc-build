@@ -5,7 +5,6 @@ package services;
 import "proto/messages/argument.proto";
 import "proto/messages/output.proto";
 
-service Xcode {
-  rpc Build (Argument) returns (Output) {}
-  rpc Select (Argument) returns (Output) {}
+service Shell {
+  rpc Command (Argument) returns (Output) {}
 }

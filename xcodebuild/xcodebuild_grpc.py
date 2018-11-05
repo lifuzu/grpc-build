@@ -6,6 +6,8 @@ import abc
 import grpclib.const
 import grpclib.client
 
+import proto.messages.argument_pb2
+import proto.messages.output_pb2
 import xcodebuild.xcodebuild_pb2
 
 
@@ -24,14 +26,14 @@ class XcodeBase(abc.ABC):
             '/services.Xcode/Build': grpclib.const.Handler(
                 self.Build,
                 grpclib.const.Cardinality.UNARY_UNARY,
-                xcodebuild.xcodebuild_pb2.Argument,
-                xcodebuild.xcodebuild_pb2.Output,
+                proto.messages.argument_pb2.Argument,
+                proto.messages.output_pb2.Output,
             ),
             '/services.Xcode/Select': grpclib.const.Handler(
                 self.Select,
                 grpclib.const.Cardinality.UNARY_UNARY,
-                xcodebuild.xcodebuild_pb2.Argument,
-                xcodebuild.xcodebuild_pb2.Output,
+                proto.messages.argument_pb2.Argument,
+                proto.messages.output_pb2.Output,
             ),
         }
 
@@ -42,12 +44,12 @@ class XcodeStub:
         self.Build = grpclib.client.UnaryUnaryMethod(
             channel,
             '/services.Xcode/Build',
-            xcodebuild.xcodebuild_pb2.Argument,
-            xcodebuild.xcodebuild_pb2.Output,
+            proto.messages.argument_pb2.Argument,
+            proto.messages.output_pb2.Output,
         )
         self.Select = grpclib.client.UnaryUnaryMethod(
             channel,
             '/services.Xcode/Select',
-            xcodebuild.xcodebuild_pb2.Argument,
-            xcodebuild.xcodebuild_pb2.Output,
+            proto.messages.argument_pb2.Argument,
+            proto.messages.output_pb2.Output,
         )

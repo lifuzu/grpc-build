@@ -3,7 +3,7 @@ import asyncio
 
 from grpclib.client import Channel
 
-from .xcodebuild_pb2 import Argument
+from proto.messages.argument_pb2 import Argument
 from .xcodebuild_grpc import XcodeStub
 
 

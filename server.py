@@ -4,6 +4,7 @@ from grpclib.server import Server
 
 from helloworld.server import Greeter
 from xcodebuild.server import Xcode
+from shell.server import Shell
 
 
 async def serve(server, *, host='127.0.0.1', port=50051):
@@ -17,7 +18,11 @@ async def serve(server, *, host='127.0.0.1', port=50051):
 
 
 async def main():
-    server = Server([Greeter(), Xcode()], loop=asyncio.get_event_loop())
+    server = Server([
+                    Greeter(),
+                    Xcode(),
+                    Shell()
+                    ], loop=asyncio.get_event_loop())
     await serve(server)
 
 
