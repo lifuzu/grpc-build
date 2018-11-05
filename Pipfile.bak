@@ -1,0 +1,36 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+#[[source]]
+#url = "http://localhost:8003/simple"
+#verify_ssl = true
+#name = "local"
+
+[packages]
+#"-e .*" = {version="*", index="pypi"}
+#requests = {version="*", extras = ["security"]}
+grpclib = {verison="*", index="pypi"}
+protobuf = {verison="*", index="pypi"}
+
+[dev-packages]
+grpcio = {verison="*", index="pypi"}
+grpcio-tools = {verison="*", index="pypi"}
+twine = {verison="*", index="pypi"}
+tox = {verison="*", index="pypi"}
+pytest = {verison="*", index="pypi"}
+pytest-cov = {verison="*", index="pypi"}
+flake8 = {verison="*", index="pypi"}
+sphinx = {verison="*", index="pypi"}
+
+[scripts]
+hello = "echo hello"
+protoc = "python -m grpc_tools.protoc -I. --python_out=. --python_grpc_out=. helloworld/helloworld.proto"
+test = "pytest"
+rmdist = "rm -fr dist"
+compile = "python setup.py sdist bdist_wheel"
+upload = "twine upload dist/* -r local"
+
+[requires]
+python_version = "3.7"

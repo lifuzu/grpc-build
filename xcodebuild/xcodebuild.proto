@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package services;
+
+message Argument {
+  repeated string args = 1;
+}
+
+message Output {
+  int32 retcode = 1;
+  string stdout = 2;
+  string stderr = 3;
+}
+
+service Xcode {
+  rpc Build (Argument) returns (Output) {}
+}

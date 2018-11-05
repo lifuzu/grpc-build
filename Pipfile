@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+grpclib = "*"
+protobuf = "*"
+
+[dev-packages]
+grpcio = "*"
+grpcio-tools = "*"
+tox = "*"
+
+[scripts]
+hello = "echo hello"
+protoc = "python -m grpc_tools.protoc -I. --python_out=. --python_grpc_out=. helloworld/helloworld.proto"
+test = "pytest"
+rmdist = "rm -fr dist"
+compile = "python setup.py sdist bdist_wheel"
+upload = "twine upload dist/* -r local"
+
+[requires]
+python_version = "3.7"
