@@ -19,3 +19,9 @@ $ python server.py
 ```
 $ python -m helloworld.client
 ```
+
+
+### Generate base / stub for gRPC
+```
+$ pipenv run xcodebuild_protoc
+```

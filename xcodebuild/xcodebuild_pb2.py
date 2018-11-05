@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='services',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x1bxcodebuild/xcodebuild.proto\x12\x08services\"\x18\n\x08\x41rgument\x12\x0c\n\x04\x61rgs\x18\x01 \x03(\t\"9\n\x06Output\x12\x0f\n\x07retcode\x18\x01 \x01(\x05\x12\x0e\n\x06stdout\x18\x02 \x01(\t\x12\x0e\n\x06stderr\x18\x03 \x01(\t28\n\x05Xcode\x12/\n\x05\x42uild\x12\x12.services.Argument\x1a\x10.services.Output\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x1bxcodebuild/xcodebuild.proto\x12\x08services\"\x18\n\x08\x41rgument\x12\x0c\n\x04\x61rgs\x18\x01 \x03(\t\"9\n\x06Output\x12\x0f\n\x07retcode\x18\x01 \x01(\x05\x12\x0e\n\x06stdout\x18\x02 \x01(\t\x12\x0e\n\x06stderr\x18\x03 \x01(\t2j\n\x05Xcode\x12/\n\x05\x42uild\x12\x12.services.Argument\x1a\x10.services.Output\"\x00\x12\x30\n\x06Select\x12\x12.services.Argument\x1a\x10.services.Output\"\x00\x62\x06proto3')
 )
 
 
@@ -127,12 +127,21 @@ _XCODE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   serialized_start=126,
-  serialized_end=182,
+  serialized_end=232,
   methods=[
   _descriptor.MethodDescriptor(
     name='Build',
     full_name='services.Xcode.Build',
     index=0,
+    containing_service=None,
+    input_type=_ARGUMENT,
+    output_type=_OUTPUT,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Select',
+    full_name='services.Xcode.Select',
+    index=1,
     containing_service=None,
     input_type=_ARGUMENT,
     output_type=_OUTPUT,

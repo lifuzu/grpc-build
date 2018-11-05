@@ -15,10 +15,20 @@ class XcodeBase(abc.ABC):
     async def Build(self, stream):
         pass
 
+    @abc.abstractmethod
+    async def Select(self, stream):
+        pass
+
     def __mapping__(self):
         return {
             '/services.Xcode/Build': grpclib.const.Handler(
                 self.Build,
+                grpclib.const.Cardinality.UNARY_UNARY,
+                xcodebuild.xcodebuild_pb2.Argument,
+                xcodebuild.xcodebuild_pb2.Output,
+            ),
+            '/services.Xcode/Select': grpclib.const.Handler(
+                self.Select,
                 grpclib.const.Cardinality.UNARY_UNARY,
                 xcodebuild.xcodebuild_pb2.Argument,
                 xcodebuild.xcodebuild_pb2.Output,
@@ -32,6 +42,12 @@ class XcodeStub:
         self.Build = grpclib.client.UnaryUnaryMethod(
             channel,
             '/services.Xcode/Build',
+            xcodebuild.xcodebuild_pb2.Argument,
+            xcodebuild.xcodebuild_pb2.Output,
+        )
+        self.Select = grpclib.client.UnaryUnaryMethod(
+            channel,
+            '/services.Xcode/Select',
             xcodebuild.xcodebuild_pb2.Argument,
             xcodebuild.xcodebuild_pb2.Output,
         )
